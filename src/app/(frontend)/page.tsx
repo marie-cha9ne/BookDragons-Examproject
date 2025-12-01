@@ -1,6 +1,6 @@
 import { getPayload } from 'payload'
 import config from '@/payload.config'
-import './globals.css'
+import './styles.css'
 import payloadConfig from '@/payload.config'
 
 export default async function HomePage() {
@@ -11,7 +11,7 @@ export default async function HomePage() {
    })
   return (
     <div >
-      <h1 className='text-amber-950'>Hello world</h1>
+      <h1 className='title'>Book Dragons</h1>
     </div>
   )
 }
