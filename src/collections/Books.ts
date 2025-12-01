@@ -44,7 +44,6 @@ export const Books: CollectionConfig = {
       },
     },
     {
-  // later: adding relationship to author and genre collections
       name: 'author',
       type: 'relationship',
       relationTo: 'authors',
@@ -64,6 +63,11 @@ export const Books: CollectionConfig = {
         description: 'Add genre of the book',
       },
     },
-    // legg til pris
+    {
+      name:'price',
+      label:'Price',
+      type:'number',
+      required:true,
+    }
   ],
 }

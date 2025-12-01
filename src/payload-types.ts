@@ -191,6 +191,7 @@ export interface Book {
    * Add genre of the book
    */
   genre: number | Genre;
+  price?: number | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -383,6 +384,7 @@ export interface BooksSelect<T extends boolean = true> {
   ageRec?: T;
   author?: T;
   genre?: T;
+  price?: T;
   updatedAt?: T;
   createdAt?: T;
 }
