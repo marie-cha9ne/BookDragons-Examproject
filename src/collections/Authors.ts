@@ -25,12 +25,13 @@ export const Authors : CollectionConfig={
       relationTo:'books',
       label:'Books written',
       hasMany: true,
-      required:true,
+      required:false,
       admin:{
         description:'Choose books the author has written'
       }
     },
     {
+      // endre til richText 'kort presentasjon av forfatterne'
       name:'authorDescription',
       type:'textarea',
       label:'Description of the author',

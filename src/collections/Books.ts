@@ -56,7 +56,8 @@ export const Books: CollectionConfig = {
     },
     {
       name: 'genre',
-      type: 'text',
+      type: 'relationship',
+      relationTo:'genre',
       label: 'Book genre',
       required: true,
       admin: {

@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     books: Book;
     authors: Author;
+    genre: Genre;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     books: BooksSelect<false> | BooksSelect<true>;
     authors: AuthorsSelect<false> | AuthorsSelect<true>;
+    genre: GenreSelect<false> | GenreSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -186,7 +188,7 @@ export interface Book {
   /**
    * Add genre of the book
    */
-  genre: string;
+  genre: number | Genre;
   updatedAt: string;
   createdAt: string;
 }
@@ -200,11 +202,29 @@ export interface Author {
   /**
    * Choose books the author has written
    */
-  booksWritten: (number | Book)[];
+  booksWritten?: (number | Book)[] | null;
   /**
    * Add description of the author
    */
   authorDescription: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "genre".
+ */
+export interface Genre {
+  id: number;
+  genre: string;
+  /**
+   * Add a short description of the genre
+   */
+  genreDescription: string;
+  /**
+   * Add books that fit this genre
+   */
+  bookInGenre?: (number | Book)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -247,6 +267,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'authors';
         value: number | Author;
+      } | null)
+    | ({
+        relationTo: 'genre';
+        value: number | Genre;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -352,6 +376,17 @@ export interface AuthorsSelect<T extends boolean = true> {
   name?: T;
   booksWritten?: T;
   authorDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "genre_select".
+ */
+export interface GenreSelect<T extends boolean = true> {
+  genre?: T;
+  genreDescription?: T;
+  bookInGenre?: T;
   updatedAt?: T;
   createdAt?: T;
 }
