@@ -31,11 +31,9 @@ export const Authors : CollectionConfig={
       }
     },
     {
-      // endre til richText 'kort presentasjon av forfatterne'
       name:'authorDescription',
-      type:'textarea',
+      type:'richText',
       label:'Description of the author',
-      maxLength: 400,
       required: true,
       admin:{
         description:'Add description of the author'

@@ -191,7 +191,7 @@ export interface Book {
    * Add genre of the book
    */
   genre: number | Genre;
-  price?: number | null;
+  price: number;
   updatedAt: string;
   createdAt: string;
 }
