@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     books: Book;
+    authors: Author;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -80,6 +81,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     books: BooksSelect<false> | BooksSelect<true>;
+    authors: AuthorsSelect<false> | AuthorsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -180,11 +182,29 @@ export interface Book {
   /**
    * Add author of the book.
    */
-  author: string;
+  author: number | Author;
   /**
    * Add genre of the book
    */
   genre: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "authors".
+ */
+export interface Author {
+  id: number;
+  name: string;
+  /**
+   * Choose books the author has written
+   */
+  booksWritten: (number | Book)[];
+  /**
+   * Add description of the author
+   */
+  authorDescription: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -223,6 +243,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'books';
         value: number | Book;
+      } | null)
+    | ({
+        relationTo: 'authors';
+        value: number | Author;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -317,6 +341,17 @@ export interface BooksSelect<T extends boolean = true> {
   ageRec?: T;
   author?: T;
   genre?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "authors_select".
+ */
+export interface AuthorsSelect<T extends boolean = true> {
+  name?: T;
+  booksWritten?: T;
+  authorDescription?: T;
   updatedAt?: T;
   createdAt?: T;
 }

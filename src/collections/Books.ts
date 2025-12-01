@@ -46,7 +46,8 @@ export const Books: CollectionConfig = {
     {
   // later: adding relationship to author and genre collections
       name: 'author',
-      type: 'text',
+      type: 'relationship',
+      relationTo: 'authors',
       label: 'Author of the book',
       required: true,
       admin: {
