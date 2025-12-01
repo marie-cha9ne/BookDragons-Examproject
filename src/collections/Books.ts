@@ -64,5 +64,6 @@ export const Books: CollectionConfig = {
         description: 'Add genre of the book',
       },
     },
+    // legg til pris
   ],
 }
