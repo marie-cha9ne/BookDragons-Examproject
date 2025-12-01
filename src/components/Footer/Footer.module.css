@@ -1,0 +1,20 @@
+.footer{
+  background-color:#d5c6bc;
+  height: 30vh;
+  border-top:4px solid #3F220B;
+  padding: 10px;
+  color:black;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr ));
+  grid-template-rows: auto;
+  gap: 20px;
+  align-items: center;
+  place-items: center;
+}
+
+.title{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
