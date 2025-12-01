@@ -1,0 +1,17 @@
+.nav{
+  background-color:#d5c6bc;
+  height: 20vh;
+  border-bottom:4px solid #3F220B;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color:black;
+}
+
+.title{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
