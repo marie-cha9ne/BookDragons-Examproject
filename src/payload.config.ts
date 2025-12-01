@@ -12,6 +12,7 @@ import { Books } from './collections/Books'
 import { Authors } from './collections/Authors'
 import { Genre } from './collections/Genre'
 import { Orders } from './collections/Orders'
+import { PagePhotos } from './collections/PagePhotos'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -29,7 +30,8 @@ export default buildConfig({
     Books, 
     Authors,
     Genre,
-    Orders
+    Orders,
+    PagePhotos
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
