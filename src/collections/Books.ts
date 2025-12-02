@@ -30,8 +30,8 @@ export const Books: CollectionConfig = {
     },
     {
       name: 'bookCovers',
-      type: 'upload',
-      relationTo: 'media',
+      type: 'relationship',
+      relationTo: 'page-photos',
       required: true,
     },
     {
