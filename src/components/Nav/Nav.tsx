@@ -25,7 +25,7 @@ export default function Nav(){
       ${styles.linkContainer}
       ${menuOpen ? styles.open : ''}
       `}>
-        <Link href={'/'} className={styles.homeLink}>Home</Link>
+        <Link href={'/'} className={styles.navLink}>Home</Link>
         <Link href={'/'} className={styles.navLink}>Genres</Link>
         <Link href={'/'} className={styles.navLink}>Authors</Link>
     </ul>
