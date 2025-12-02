@@ -3,7 +3,7 @@ import styles from './Footer.module.css';
 export default function Footer(){
   return(
     <footer className={styles.footer}>
-      <h3 className={styles.title}>Book Dragons</h3>
+      <h3 className={styles.title}>BookDragons</h3>
 
       <div>
         <h3>Who are we?</h3>

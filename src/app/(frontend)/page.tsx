@@ -13,7 +13,7 @@ export default async function HomePage() {
   const books = queryResults.docs
   return (
     <section>
-    <h1>Book Dragons</h1>
+    <h1>BookDragons</h1>
     <section className={styles.testGrid}>
       {books.map((book) => (
         <div key={book.id}>

@@ -8,7 +8,7 @@ export default function Nav(){
 
   return(
     <nav className={styles.nav}>
-    <h3 className={styles.title}>Book Dragons</h3>
+    <h3 className={styles.title}>BookDragons</h3>
 
     <div className={styles.cart}>
       <Image
