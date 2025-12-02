@@ -21,7 +21,7 @@ export default async function BookCards({ book }: BookCardProps){
   }
 
 return(
-  <section>
+  <section className={styles.bookSection}>
     <div className={styles.cardContainer}>
       <Image
         src={book.bookCovers?.sizes?.thumbnail?.url ?? './fallback.jpg'}
@@ -29,9 +29,9 @@ return(
         width={book.bookCovers?.sizes?.thumbnail?.width ?? 200}
         height={book.bookCovers?.sizes?.thumbnail?.height ?? 200}
         />
-      <h2>{book.title}</h2>
+      <h2 className={styles.title}>{book.title}</h2>
       <div className={styles.bookInfo}>
-        <p>Books available: {book.availablilty}</p>
+        <p>Books available: <strong>{book.availablilty}</strong></p>
         <p>Age recommendation: <strong>{book.ageRec}</strong></p>
       </div>
       {/* Later: add dialog, details or dynamicrouting to author and genre */}
@@ -39,8 +39,11 @@ return(
       <p>Book genre: {book.genre.genre}</p>
 
       <p>Price: <strong>{book.price}</strong>,-</p>
-
-      <button>Add to cart</button>
+      <div className={styles.btnContainer}>
+      <button className={styles.btn} type='button'>
+        Add to cart
+      </button>
+      </div>
     </div>
   </section>
 )

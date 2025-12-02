@@ -1,0 +1,53 @@
+.bookSection{
+  padding:10px;
+}
+
+.cardContainer{
+  border:3px solid #361C07;
+  border-radius: 2rem;
+  width: 23rem;
+  padding:1rem;
+  display: flex;
+  flex-direction: column;
+  p{
+    line-height: 0;
+  }
+}
+
+.title{
+  color:black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.bookInfo{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #361C07;
+}
+
+.btnContainer{
+  display: flex;
+  height: 3.5rem;
+  justify-content: center;
+  padding:10px;
+}
+
+.btn{
+  width: 9rem;
+  padding:8px 12px; 
+  background-color: #95C178;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 1em;
+  transition: ease-in-out 0.2s;
+}
+
+.btn:hover{
+  background-color: transparent;
+  border: 6px solid #95C178;
+  cursor: pointer;
+  transform: scale(1.02);
+}

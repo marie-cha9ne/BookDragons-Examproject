@@ -1,0 +1,9 @@
+
+
+.testGrid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-rows: 1fr repeat(1, auto);
+  gap: 1rem;
+  place-items: center;
+}
