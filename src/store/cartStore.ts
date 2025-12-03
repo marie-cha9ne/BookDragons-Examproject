@@ -35,8 +35,15 @@ export const useStoredCart = create<CartStore>()(
 
       removeFromCart(id) {
         const oldCart = get().cart
-        const updatedCart = oldCart.filter((book) => book.id !== id)
-        set({cart: updatedCart});
+        const index = oldCart.findIndex((book) => book.id === id)
+
+        if(index === -1){
+          return;
+        }else{
+          const updateCart = [...oldCart];
+          updateCart.splice(index, 1);
+          set({cart: updateCart});
+        }
       },
 
       clearCart: () => {
