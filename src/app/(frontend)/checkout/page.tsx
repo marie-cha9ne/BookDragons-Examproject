@@ -6,7 +6,9 @@ import type React from 'react'
 
 export default function CheckoutPage() {
   const cart = useStoredCart((state) => state.cart)
-  const [status, setStatus] = useState<'idle' | 'loading' | 'sucsess' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'sucsess' | 'error'>('idle');
+
+   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -43,8 +45,8 @@ export default function CheckoutPage() {
           />
          <label htmlFor="customerInfo">E-mail:</label>
         <input 
-          type="customerInfo" 
-          name='email' 
+          type="text" 
+          name='customerInfo' 
           placeholder='Customer mail..' 
           required
           className={styles.input}
@@ -54,9 +56,15 @@ export default function CheckoutPage() {
             {cart.map((item) => (
               <li key={item.id} className={styles.list}>
                 {item.title} <strong>{item.price},-</strong>
+              
+                <input 
+                type="hidden"
+                name='reserveBook'
+                value={item.id}
+                />
               </li>
             ))}
-            <p>Sub total: <strong>pris her</strong>,-</p>
+            <p>Sub total: <strong>{total}</strong>,-</p>
         </ul>
         <div className={styles.btnContainer}>
         <button 
