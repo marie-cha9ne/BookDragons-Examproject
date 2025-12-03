@@ -7,7 +7,6 @@ import styles from './ShoppingCart.module.css';
 
 
 export default function ShoppingCart(){
-  
   const cart = useStoredCart(state => state.cart);
   const removeBook = useStoredCart((s) => s.removeFromCart);
   const addBook = useStoredCart((s) => s.addToCart);
