@@ -1,13 +1,19 @@
 .nav{
   background-color:#d5c6bc;
-  height: 20vh;
+  height: 13vh;
   border-bottom:4px solid #3F220B;
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   color:black;
+  position: sticky;
+  width: 100%;
+  top:0;
 }
+/* 
+Fiks nav bar ifh til sticky eller fixed slik at den alltid kan syntes uavhengig av hvor mye du scroller.
+*/
 
 .title{
   font-family:Georgia, 'Times New Roman', Times, serif;
@@ -37,20 +43,27 @@
   display: none;
 }
 
+.cartBtn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 @media (max-width: 768px){
   .linkContainer{
     display: none;
     flex-direction: column;
+    height: 8rem;
     position: absolute;
-    top: 7.5rem;
-    right: 0.5rem;
+    top:4.6rem;
+    left: 0rem;
     background-color: #d5c6bc;
     border-radius:5px;
     border: 4px solid #3F220B;
     padding:1rem;
     transition:0.4s ease;
   }
-
+/* Endre linkContainer til å flytte seg slik cartSlide gjør. */
   .linkContainer.open{
     display: flex;
     transform: translateY(0);
