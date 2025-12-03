@@ -179,7 +179,7 @@ export interface Book {
   /**
    * Add number of available book copies
    */
-  availablilty: number;
+  availability: number;
   bookCovers: number | PagePhoto;
   /**
    * Add recommended age for the book.
@@ -444,7 +444,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface BooksSelect<T extends boolean = true> {
   title?: T;
-  availablilty?: T;
+  availability?: T;
   bookCovers?: T;
   ageRec?: T;
   author?: T;

@@ -20,7 +20,7 @@ export const Books: CollectionConfig = {
       required: true,
     },
     {
-      name: 'availablilty',
+      name: 'availability',
       label: 'Book availability',
       type: 'number',
       admin: {

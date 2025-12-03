@@ -27,27 +27,13 @@
   border-bottom: 3px solid #361C07;
 }
 
-.btnContainer{
-  display: flex;
-  height: 3.5rem;
-  justify-content: center;
+.toast{
+  color: black;
+  background-color:#95c178b6;
+  border-radius:10px;
+  font-weight: 500;
+  width: 15rem;
   padding:10px;
-}
-
-.btn{
-  width: 9rem;
-  padding:8px 12px; 
-  background-color: #95C178;
-  border: none;
-  border-radius: 7px;
-  font-weight: bold;
-  font-size: 1em;
-  transition: ease-in-out 0.2s;
-}
-
-.btn:hover{
-  background-color: transparent;
-  border: 6px solid #95C178;
-  cursor: pointer;
-  transform: scale(1.02);
+  text-align: center;
+  position: absolute;
 }
