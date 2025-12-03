@@ -1,12 +1,18 @@
+'use client'
 import type { Book } from '@/payload-types';
 import styles from './BookCards.module.css';
 import Image from 'next/image';
+import AddToCart from '../AddToCart/AddToCart';
+import { showToast } from '@/utils/toast';
+import { useState } from 'react';
 
 type BookCardProps = {
   book: Book,
 }
 
 export default async function BookCards({ book }: BookCardProps){
+
+  const [toast, setToast] = useState(null);
 
   if(!book.bookCovers || typeof book.bookCovers !== 'object'){
     return <p className={styles.errorMsg}>No image available for this book</p>

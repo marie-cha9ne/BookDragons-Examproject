@@ -3,8 +3,8 @@ import { persist } from 'zustand/middleware';
 
 type CartItem  ={
   id:number,
-  title:string
-  price:number
+  title:string,
+  price:number,
 }
 
 type CartStore = {
