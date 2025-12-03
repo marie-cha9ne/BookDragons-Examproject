@@ -19,10 +19,10 @@ export default function AddToCart({book, onAdd}: AddToCartProps){
 // hvis callback ikke finnes
   }
   return(
-    <div>
+    <div className={styles.btnContainer}>
     <button 
       onClick={handleClick}
-      className={styles.addBtn}
+      className={styles.btn}
       >
         Add to cart
       </button>

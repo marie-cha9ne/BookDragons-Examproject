@@ -5,6 +5,7 @@ type CartItem  ={
   id:number,
   title:string,
   price:number,
+  availability: number
 }
 
 type CartStore = {
@@ -21,8 +22,15 @@ export const useStoredCart = create<CartStore>()(
 
       addToCart(item) {
        const oldCart = get().cart
+
+       const availableBooks = oldCart.filter(book => book.id === item.id).length
+
+       if(availableBooks >= item.availability){
+        return;
+       }else{
         const newList =  [...oldCart, item]
         set({cart: newList})
+        }
       },
 
       removeFromCart(id) {
