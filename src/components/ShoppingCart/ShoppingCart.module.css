@@ -1,5 +1,21 @@
-
-
 .cartBtn{
   cursor: pointer;
+}
+
+.btn{
+  width: 9rem;
+  padding:8px 12px; 
+  background-color: #95C178;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 1em;
+  transition: ease-in-out 0.2s;
+}
+
+.btn:hover{
+  background-color: transparent;
+  border: 6px solid #95C178;
+  cursor: pointer;
+  transform: scale(1.01);
 }
