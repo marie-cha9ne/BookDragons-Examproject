@@ -10,7 +10,7 @@ type CartItem  ={
 
 type CartStore = {
   cart: CartItem[],
-  addToCart: (item: CartItem) => void,
+  addToCart: (item: CartItem) => "added" | "soldout",
   removeFromCart: (id: number) => void,
   clearCart: () => void
 }
@@ -26,10 +26,11 @@ export const useStoredCart = create<CartStore>()(
        const availableBooks = oldCart.filter(book => book.id === item.id).length
 
        if(availableBooks >= item.availability){
-        return;
+        return "soldout";
        }else{
         const newList =  [...oldCart, item]
         set({cart: newList})
+        return "added";
         }
       },
 

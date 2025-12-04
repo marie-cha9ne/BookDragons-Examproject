@@ -10,7 +10,7 @@ export default async function HomePage() {
     depth: 1,
   })
 
-  const books = queryResults.docs
+  const books = queryResults.docs;
   return (
     <section>
     <h1>BookDragons</h1>
