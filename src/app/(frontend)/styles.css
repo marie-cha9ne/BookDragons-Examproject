@@ -15,15 +15,13 @@ html {
 }
 
 html,
-body,
-#app {
-  height: 100%;
+body{
+  min-height: 100%;
 }
 
 body {
   font-family: system-ui;
   font-size: 18px;
-  /* line-height: 32px; */
 
   margin: 0;
   color: rgb(1000, 1000, 1000);
@@ -70,9 +68,6 @@ p {
   margin: 24px 0;
   color: black;
 
-  /* @media (max-width: 1024px) {
-    margin: calc(var(--base) * 0.75) 0;
-  } */
 }
 
 a {
@@ -86,33 +81,5 @@ a {
   &:active {
     opacity: 0.7;
     outline: none;
-  }
-}
-
-.home {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-  padding: 45px;
-  max-width: 1024px;
-  margin: 0 auto;
-  /* overflow: hidden; */
-
-  @media (max-width: 400px) {
-    padding: 24px;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-
-    h1 {
-      text-align: center;
-    }
   }
 }
