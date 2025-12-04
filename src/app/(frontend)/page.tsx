@@ -14,7 +14,7 @@ export default async function HomePage() {
   return (
     <section>
     <h1>BookDragons</h1>
-    <section className={styles.testGrid}>
+    <section className={styles.grid}>
       {books.map((book) => (
         <div key={book.id}>
           <BookCards book={book} />

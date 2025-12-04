@@ -1,14 +1,15 @@
 "use client"
 import styles from './nav.module.css';
-import Image from 'next/image';
 import Menu from './assets/Menu.svg';
 import X from './assets/X.svg';
 import CartIcon from './assets/Shopping cart.svg';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
-import CartSlide from '../CartSlide/CartSlide';
 import { useStoredCart } from '@/store/cartStore';
+import CartSlide from '../CartSlide/CartSlide';
+import MobileMenu from '../MobileMenu/MobileMenu';
 
 
 export default function Nav(){
@@ -59,7 +60,8 @@ export default function Nav(){
         <div className={styles.cartCount}>{cart.length}</div>
       </div>
     </nav>
-      <CartSlide open={cartOpen} onClose={()=>setCartOpen(false)}/>
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)}/>
+      <CartSlide open={cartOpen} onClose={() => setCartOpen(false)}/>
   </>
   )
 }
