@@ -1,62 +1,72 @@
 'use client'
-import { useStoredCart } from '@/store/cartStore'
-import { useState } from 'react'
-import type React from 'react'
-import { useRouter } from 'next/navigation'
-import { showToast } from '@/utils/toast'
-import styles from './CustomerForm.module.css'
+import { useStoredCart } from '@/store/cartStore';
+import { useRef, useState } from 'react';
+import type React from 'react';
+import { useRouter } from 'next/navigation';
+import { showToast } from '@/utils/toast';
+import styles from './CustomerForm.module.css';
 
 export default function CustomerForm() {
-  const router = useRouter()
-  const cart = useStoredCart((state) => state.cart)
-  const [status, setStatus] = useState<'idle' | 'loading' | 'sucsess' | 'error'>('idle')
+  const router = useRouter();
+  const cart = useStoredCart((state) => state.cart);
+  const clearCart = useStoredCart((s) => s.clearCart);
 
-  const [toast, setToast] = useState<string | null>(null)
-
-  const total = cart.reduce((sum, item) => sum + item.price, 0)
+  const [status, setStatus] = useState<'idle' | 'loading' | 'sucsess' | 'error'>('idle');
+  const [toast, setToast] = useState<string | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
+    e.preventDefault();
 
-    setStatus('loading')
+    setStatus('loading');
 
-    const reserveForm = e.currentTarget
-    const formData = new FormData(reserveForm)
+    const reserveForm = e.currentTarget;
+    const formData = new FormData(reserveForm);
 
-    let payloadData: Record<string, any> = {}
-    let reserveBooks = []
+    let payloadData: Record<string, any> = {};
+    let reserveBooks = [];
 
     for (const [key, value] of formData.entries()) {
       if (key === 'reserveBook') {
-        reserveBooks.push(Number(value))
-      }
+        reserveBooks.push(Number(value));
+      };
       if (key === 'customerName') {
-        payloadData.customerName = value
-      }
+        payloadData.customerName = value;
+      };
       if (key === 'customerInfo') {
-        payloadData.customerInfo = value
-      }
+        payloadData.customerInfo = value;
+      };
     }
 
-    payloadData.reserveBook = reserveBooks
+    payloadData.reserveBook = reserveBooks;
 
     const res = await fetch('/api/custom-orders', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(payloadData),
-    })
+    });
 
     if (res.ok) {
-      setStatus('sucsess')
+      setStatus('sucsess');
 
-      router.refresh()
+      router.refresh();
 
-      reserveForm.reset()
+      reserveForm.reset();
 
-      showToast('Your order has been placed, we will contact you when order is ready for pickup', setToast);
-    }
+      dialogRef.current?.showModal();
 
-    // velg toast eller dialog for tilbakemelding til bruker om status av reservasjon
+      clearCart();
+    }else{
+      setStatus('error');
+      showToast('Your order could not be saved', setToast);
+    };
+  }
+
+  function closeDialog(){
+    dialogRef.current?.close();
+    setStatus("idle");
+    router.push('/');
   }
   return (
     <section>
@@ -95,10 +105,26 @@ export default function CustomerForm() {
           <button type="submit" className={styles.btn}>
             {status === 'loading' ? 'Saving order' : 'Reserve order'}
           </button>
-          {status === 'sucsess' && <p>Your is now placed</p>}
-          {status === 'error' && <p>Your order could not be saved</p>}
         </div>
       </form>
+      <dialog
+      ref={dialogRef}    
+      className={styles.dialog}  
+      >
+        <h2>Your order has been placed!</h2>
+        <p>
+          Your order has been sucsessfully placed. The store will contact you for further information about pickup! <br/> Thanks for shopping with us!
+        </p>
+        <div className={styles.btnContainer}>
+          <button
+          type='button'
+          onClick={closeDialog}
+          className={styles.btn}
+          >
+            Close
+          </button>
+          </div>
+      </dialog>
     </section>
   )
 }

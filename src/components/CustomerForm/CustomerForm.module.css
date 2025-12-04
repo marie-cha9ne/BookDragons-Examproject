@@ -60,3 +60,10 @@
   cursor: pointer;
   transform: scale(1.02);
 }
+
+.dialog{
+  border: 3px solid #3F220B;
+  text-align: center;
+  line-height: 1rem;
+  border-radius: 8px;
+}
