@@ -7,13 +7,15 @@ import CartIcon from './assets/Shopping cart.svg';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import CartSlide from '../CartSlide/CartSlide'
+import CartSlide from '../CartSlide/CartSlide';
+import { useStoredCart } from '@/store/cartStore';
 
 
 export default function Nav(){
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const path = usePathname();
+  const cart = useStoredCart((state) => state.cart);
 
   useEffect(()=>{
     setMenuOpen(false)
@@ -54,6 +56,7 @@ export default function Nav(){
         >
           <Image src={CartIcon} alt='Shoppingcart' width={40} height={40}/>
         </button>
+        <div className={styles.cartCount}>{cart.length}</div>
       </div>
     </nav>
       <CartSlide open={cartOpen} onClose={()=>setCartOpen(false)}/>

@@ -300,7 +300,7 @@ export interface Order {
   id: number;
   customerName: string;
   customerInfo: string;
-  reserveBook: number | Book;
+  reserveBook: (number | Book)[];
   updatedAt: string;
   createdAt: string;
 }

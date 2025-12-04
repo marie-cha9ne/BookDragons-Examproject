@@ -31,10 +31,11 @@ export default function ShoppingCart({ onClose }: CartProps) {
         <>
           <ul>
             {cart.map((item) => (
-              <li key={item.id}>
+              <li key={item.id} className={styles.listParent}>
                 <p>{item.title}</p>
-                <p>{item.price},-</p>
+                <p><strong>{item.price},-</strong></p>
 
+              <div className={styles.btnContainer}>
                 <button type="button" onClick={() => addBook(item)} className={styles.cartBtn}>
                   <Image src={AddIcon} alt="Add item" height={25} width={25} />
                 </button>
@@ -45,10 +46,11 @@ export default function ShoppingCart({ onClose }: CartProps) {
                 >
                   <Image src={BinIcon} alt="Add item" height={25} width={25} />
                 </button>
+                </div>
               </li>
             ))}
           </ul>
-          <div className={styles.cartBottom}>
+          <div>
             <p>
               Total: <strong>{total},-</strong>
             </p>

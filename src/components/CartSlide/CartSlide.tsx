@@ -3,15 +3,15 @@ import ShoppingCart from '../ShoppingCart/ShoppingCart'
 import styles from './CartSlide.module.css'
 
 type CartSlideProps = {
-  open: boolean
-  onClose: () => void
+  open: boolean,
+  onClose: () => void,
 }
 
 export default function CartSlide({ open, onClose }: CartSlideProps) {
   return (
     <>
       <aside
-        className={`
+      className={`
       ${open ? styles.open : styles.closed} 
       ${styles.cartSlide}
       `}
