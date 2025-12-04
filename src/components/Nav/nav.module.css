@@ -49,6 +49,25 @@ Fiks nav bar ifh til sticky eller fixed slik at den alltid kan syntes uavhengig 
   cursor: pointer;
 }
 
+.cartContainer{
+  position: relative;
+}
+.cartCount{
+  position: absolute;
+  top:-6px;
+  left:38px;
+  background-color: whitesmoke;
+  border: 1px solid #3F220B;
+  font-weight: 500;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-overflow: none;
+}
+
 @media (max-width: 768px){
   .linkContainer{
     display: none;
@@ -73,5 +92,10 @@ Fiks nav bar ifh til sticky eller fixed slik at den alltid kan syntes uavhengig 
     display: block;
     cursor: pointer;
     position: relative;
+  }
+
+  .cartCount{
+    width: 25px;
+    height: 25px;
   }
 }

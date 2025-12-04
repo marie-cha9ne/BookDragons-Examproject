@@ -6,6 +6,9 @@ export const Orders : CollectionConfig={
     read: () => true,
     create: () => true
   },
+  admin:{
+    useAsTitle:'reserveBook'
+  },
   fields:[
     {
       name:'customerName',
@@ -23,6 +26,7 @@ export const Orders : CollectionConfig={
       name:'reserveBook',
       type:'relationship',
       relationTo:'books',
+      hasMany: true,
       label:'Reserved book',
       required: true,
     }
