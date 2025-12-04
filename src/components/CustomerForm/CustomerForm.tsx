@@ -19,6 +19,12 @@ export default function CustomerForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    if(cart.length === 0){
+      setStatus('error');
+      showToast("This cart is empty", setToast);
+      return;
+    }
+
     setStatus('loading');
 
     const reserveForm = e.currentTarget;
