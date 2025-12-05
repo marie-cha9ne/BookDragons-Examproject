@@ -2,6 +2,7 @@ import { getPayload } from "payload";
 import config from '@/payload.config';
 import BookCards from "@/components/BookCards/BookCards";
 import { Book } from "@/payload-types";
+import styles from './styles.module.css';
 
 type GenreSlugParams={
   params: Promise<{slug: string}>
@@ -28,12 +29,14 @@ export default async function GenreSlugPage({params}: GenreSlugParams){
   )
 
   return(
-    <section>
+    <section className={styles.mainSection}>
       <h1>{genre.genre}</h1>
       <p>{genre.genreDescription}</p>
+      <section className={styles.gridSection}>
       {books.map(book => (
         <BookCards book={book} key={book.id} />
       ))}
+      </section>
     </section>
   )
 }
