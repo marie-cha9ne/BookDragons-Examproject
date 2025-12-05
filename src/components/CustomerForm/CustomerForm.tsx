@@ -97,8 +97,8 @@ export default function CustomerForm() {
           <p>
             <strong>Your order:</strong>
           </p>
-          {cart.map((item) => (
-            <li key={item.id} className={styles.list}>
+          {cart.map((item, index) => (
+            <li key={item.id + '-' + index} className={styles.list}>
               {item.title} <strong>{item.price},-</strong>
               <input type="hidden" name="reserveBook" value={item.id} />
             </li>
