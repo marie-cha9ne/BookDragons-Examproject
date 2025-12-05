@@ -7,7 +7,7 @@ export default async function HomePage() {
   const payload = await getPayload({ config })
   const queryResults = await payload.find({
     collection: 'books',
-    depth: 1,
+    depth: 2,
   })
 
   const books = queryResults.docs;

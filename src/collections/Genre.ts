@@ -14,6 +14,15 @@ export const Genre : CollectionConfig ={
   },
   fields:[
     {
+      name:'slug',
+      type:'text',
+      required: true,
+      unique:true,
+      admin:{
+        description:'Url of the genre'
+      }
+    },
+    {
       name:'genre',
       label:'Name of the genre',
       type:'text',
