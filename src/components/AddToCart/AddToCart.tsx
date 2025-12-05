@@ -13,7 +13,7 @@ type AddToCartProps = {
 export default function AddToCart({book, onAdd}: AddToCartProps){
   const [toast, setToast] = useState<string | null>(null);
   const addToCart = useStoredCart((state) => state.addToCart);
-
+  
   function handleClick(){
    const result = addToCart(book);
     

@@ -30,8 +30,9 @@ export default function ShoppingCart({ onClose }: CartProps) {
       ) : (
         <>
           <ul>
-            {cart.map((item) => (
-              <li key={item.id} className={styles.listParent}>
+            {cart.map((item, index) => (
+// key={item.id + '-' + index} sikrer at hvert element i listen alltid er unikt
+              <li key={item.id + '-' + index} className={styles.listParent}>
                 <p>{item.title}</p>
                 <p><strong>{item.price},-</strong></p>
 
