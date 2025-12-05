@@ -1,5 +1,4 @@
 import config from '@payload-config';
-import { error } from 'console';
 import { NextResponse } from 'next/server';
 import { getPayload } from 'payload';
 
