@@ -5,6 +5,7 @@ import Image from 'next/image';
 import AddToCart from '../AddToCart/AddToCart';
 import { showToast } from '@/utils/toast';
 import { useState } from 'react';
+import Link from 'next/link';
 
 type BookCardProps = {
   book: Book,
@@ -42,7 +43,9 @@ return(
       </div>
       {/* Later: add dialog, details or dynamicrouting to author and genre */}
       <p>Author of the book: {book.author.name}</p>
-      <p>Book genre: {book.genre.genre}</p>
+      <Link href={`/genre/${book.genre.slug}`} className={styles.genreLink}>
+      Book genre: {book.genre.genre}
+      </Link>
 
       <p>Price: <strong>{book.price}</strong>,-</p>
 
