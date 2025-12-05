@@ -300,7 +300,13 @@ export interface Order {
   id: number;
   customerName: string;
   customerInfo: string;
-  reserveBook: (number | Book)[];
+  items?:
+    | {
+        book: number | Book;
+        bookQuantity: number;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -482,7 +488,13 @@ export interface GenreSelect<T extends boolean = true> {
 export interface OrdersSelect<T extends boolean = true> {
   customerName?: T;
   customerInfo?: T;
-  reserveBook?: T;
+  items?:
+    | T
+    | {
+        book?: T;
+        bookQuantity?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

@@ -19,10 +19,19 @@ export default function ShoppingCart({ onClose }: CartProps) {
 
   const total = cart.reduce((sum, item) => sum + item.price, 0)
 
+  const counts: Record<number, number> = {}
+  for (const item of cart) {
+    counts[item.id] = (counts[item.id] || 0) + 1
+  };
+
+  const uniqeItems = Object.entries(counts).map(([id, quantity]) => {
+    return { id: Number(id), quantity }
+  });
+
   const handleReserve = () => {
-    onClose()
-    router.push('/checkout')
-  }
+    onClose();
+    router.push('/checkout');
+  };
   return (
     <div>
       {cart.length === 0 ? (
@@ -30,26 +39,30 @@ export default function ShoppingCart({ onClose }: CartProps) {
       ) : (
         <>
           <ul>
-            {cart.map((item, index) => (
-// key={item.id + '-' + index} sikrer at hvert element i listen alltid er unikt
-              <li key={item.id + '-' + index} className={styles.listParent}>
-                <p>{item.title}</p>
-                <p><strong>{item.price},-</strong></p>
+            {uniqeItems.map(({ id, quantity }) => {
+              const book = cart.find((b) => b.id === Number(id))
 
-              <div className={styles.btnContainer}>
-                <button type="button" onClick={() => addBook(item)} className={styles.cartBtn}>
-                  <Image src={AddIcon} alt="Add item" height={25} width={25} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => removeBook(item.id)}
-                  className={styles.cartBtn}
-                >
-                  <Image src={BinIcon} alt="Add item" height={25} width={25} />
-                </button>
-                </div>
-              </li>
-            ))}
+              if (!book) {
+                return null;
+              }
+              return (
+                <li key={id} className={styles.listParent}>
+                  <p>{book?.title}</p>
+                  <p>
+                    <strong>{book?.price},-</strong>
+                  </p>
+                  <p>{quantity}</p>
+                  <div className={styles.btnContainer}>
+                    <button type="button" onClick={() => addBook(book)} className={styles.cartBtn}>
+                      <Image src={AddIcon} alt="Add item" height={25} width={35} />
+                    </button>
+                    <button type="button" onClick={() => removeBook(id)} className={styles.cartBtn}>
+                      <Image src={BinIcon} alt="Add item" height={25} width={35} />
+                    </button>
+                  </div>
+                </li>
+              )
+            })};
           </ul>
           <div>
             <p>
