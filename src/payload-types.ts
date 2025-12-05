@@ -280,6 +280,10 @@ export interface Author {
  */
 export interface Genre {
   id: number;
+  /**
+   * Url of the genre
+   */
+  slug: string;
   genre: string;
   /**
    * Add a short description of the genre
@@ -475,6 +479,7 @@ export interface AuthorsSelect<T extends boolean = true> {
  * via the `definition` "genre_select".
  */
 export interface GenreSelect<T extends boolean = true> {
+  slug?: T;
   genre?: T;
   genreDescription?: T;
   bookInGenre?: T;
