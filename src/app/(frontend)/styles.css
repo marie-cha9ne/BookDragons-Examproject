@@ -19,6 +19,10 @@ body{
   min-height: 100%;
 }
 
+main{
+  min-height: 80vh;
+}
+
 body {
   font-family: system-ui;
   font-size: 18px;
