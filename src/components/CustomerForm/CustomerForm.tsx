@@ -30,22 +30,28 @@ export default function CustomerForm() {
     const reserveForm = e.currentTarget;
     const formData = new FormData(reserveForm);
 
-    let payloadData: Record<string, any> = {};
-    let reserveBooks = [];
+    // skal endre cart til format som payload trenger
+    // teller først duplikater av bøker
+    const counts: Record<number, number> = {};
 
-    for (const [key, value] of formData.entries()) {
-      if (key === 'reserveBook') {
-        reserveBooks.push(Number(value));
-      };
-      if (key === 'customerName') {
-        payloadData.customerName = value;
-      };
-      if (key === 'customerInfo') {
-        payloadData.customerInfo = value;
-      };
-    }
+    // teller hvor mange av hver bok kunden hat lagt til i cart
+    for(const item of cart){
+      counts[item.id] = (counts[item.id] || 0) + 1;
+    };
 
-    payloadData.reserveBook = reserveBooks;
+    // lager riktig format for payload: [{book: id, bookQuantity: nr}]
+    const items = Object.entries(counts).map(([bookId, quantity]) => ({
+      book: Number(bookId),
+      bookQuantity: quantity,
+    }));
+
+    // Datastruktur som sendes til backend
+    const payloadData = {
+      customerName: formData.get('customerName'),
+      customerInfo: formData.get('customerInfo'),
+      items,
+    };
+
 
     const res = await fetch('/api/custom-orders', {
       method: 'POST',
@@ -100,7 +106,6 @@ export default function CustomerForm() {
           {cart.map((item, index) => (
             <li key={item.id + '-' + index} className={styles.list}>
               {item.title} <strong>{item.price},-</strong>
-              <input type="hidden" name="reserveBook" value={item.id} />
             </li>
           ))}
           <p>

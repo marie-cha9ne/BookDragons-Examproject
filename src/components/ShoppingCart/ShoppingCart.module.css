@@ -17,11 +17,11 @@
 
 .listParent{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   place-items: center;
   gap:1rem;
-  width: 100%;
+
   p{
     font-size:1rem;
   }
