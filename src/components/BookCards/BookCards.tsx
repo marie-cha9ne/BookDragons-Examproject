@@ -41,9 +41,17 @@ return(
         <p>Books available: <strong>{book.availability}</strong></p>
         <p>Age recommendation: <strong>{book.ageRec}</strong></p>
       </div>
-      {/* Later: add dialog, details or dynamicrouting to author and genre */}
-      <p>Author of the book: {book.author.name}</p>
-      <Link href={`/genre/${book.genre.slug}`} className={styles.genreLink}>
+      <Link 
+      href={`/authors/${book.author.slug}`} 
+      className={styles.genreLink}
+      >
+      Author of the book: {book.author.name}
+      </Link>
+
+      <Link 
+      href={`/genre/${book.genre.slug}`}
+      className={styles.genreLink}
+       >
       Book genre: {book.genre.genre}
       </Link>
 
