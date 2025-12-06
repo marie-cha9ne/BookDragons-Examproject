@@ -12,7 +12,7 @@ export default function MobileMenu({open, onClose}: MenuProps){
       <ul className={styles.linkParent}>
       <Link href={'/'} className={styles.burgerLinks}>Home</Link>
       <Link href={'/'} className={styles.burgerLinks}>Genres</Link>
-      <Link href={'/'} className={styles.burgerLinks}>Authors</Link>
+      <Link href={'/authors'} className={styles.burgerLinks}>Authors</Link>
       </ul>
     </aside>
   )

@@ -248,6 +248,10 @@ export interface PagePhoto {
  */
 export interface Author {
   id: number;
+  /**
+   * Url for this author
+   */
+  slug?: string | null;
   name: string;
   /**
    * Choose books the author has written
@@ -468,6 +472,7 @@ export interface BooksSelect<T extends boolean = true> {
  * via the `definition` "authors_select".
  */
 export interface AuthorsSelect<T extends boolean = true> {
+  slug?: T;
   name?: T;
   booksWritten?: T;
   authorDescription?: T;

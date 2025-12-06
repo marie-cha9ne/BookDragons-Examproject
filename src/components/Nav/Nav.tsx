@@ -46,7 +46,7 @@ export default function Nav(){
       `}>
         <Link href={'/'} className={styles.navLink}>Home</Link>
         <Link href={'/'} className={styles.navLink}>Genres</Link>
-        <Link href={'/'} className={styles.navLink}>Authors</Link>
+        <Link href={'/authors'} className={styles.navLink}>Authors</Link>
     </ul>
 
       <div className={styles.cartContainer}>
