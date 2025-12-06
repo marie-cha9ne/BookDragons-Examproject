@@ -14,6 +14,14 @@ export const Authors : CollectionConfig={
   },
   fields:[
     {
+      name:'slug',
+      type:'text',
+      unique: true,
+      admin:{
+        description:'Url for this author'
+      }
+    },
+    {
       name:'name',
       type:'text',
       label:'Author name',
