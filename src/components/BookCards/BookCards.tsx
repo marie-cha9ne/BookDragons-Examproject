@@ -12,9 +12,10 @@ type BookCardProps = {
 }
 
 export default function BookCards({ book }: BookCardProps){
-
+// Lokal toast for å vise 'book added' feedback i hvert kort
   const [toast, setToast] = useState<string |null>(null);
 
+  // Sanity checks: sikrer at data er lastet og Riktig strukturert
   if(!book.bookCovers || typeof book.bookCovers !== 'object'){
     return <p className={styles.errorMsg}>No image available for this book</p>
   }
@@ -30,6 +31,7 @@ export default function BookCards({ book }: BookCardProps){
 return(
   <section className={styles.bookSection}>
     <div className={styles.cardContainer}>
+      {/* Viser book cover, faller tilbake til placeholder om URL ikke finnes */}
       <Image
         src={book.bookCovers?.sizes?.thumbnail?.url ?? '/fallback.jpg'}
         alt={book.bookCovers.alt}
@@ -41,6 +43,7 @@ return(
         <p>Books available: <strong>{book.availability}</strong></p>
         <p>Age recommendation: <strong>{book.ageRec}</strong></p>
       </div>
+
       <Link 
       href={`/authors/${book.author.slug}`} 
       className={styles.genreLink}
@@ -57,6 +60,7 @@ return(
 
       <p>Price: <strong>{book.price}</strong>,-</p>
 
+{/* AddToCart bruker callback for å vise toast i denne komponenten */}
       <AddToCart 
         book={book}
         onAdd={() => showToast('Book added to cart!', setToast)}

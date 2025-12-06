@@ -75,6 +75,8 @@
     display: block;
     cursor: pointer;
     position: relative;
+    border: none;
+    background-color: transparent;
   }
 
   .cartCount{
