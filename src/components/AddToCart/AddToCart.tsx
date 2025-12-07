@@ -7,7 +7,7 @@ import { useState } from "react";
 
 type AddToCartProps = {
   book: Book,
-  onAdd?: () => void
+  onAdd?: () => void // Optional callback fra parent (BookCards)
 }
 
 export default function AddToCart({book, onAdd}: AddToCartProps){
@@ -15,16 +15,17 @@ export default function AddToCart({book, onAdd}: AddToCartProps){
   const addToCart = useStoredCart((state) => state.addToCart);
   
   function handleClick(){
+  // addToCart returnerer 'added' eller 'soldout'
    const result = addToCart(book);
-    
+
+// Hvis antall i handlekurv overstiger availability -> gi brukeren feedback
    if(result === 'soldout'){
     showToast('No more available copies of this book', setToast);
     return;
    }
 
+  //  Kall optional callback fra parent bare hvid den finnes
     onAdd?.();
-// Bruker optional chaining: onAdd?.() for å unngå feil
-// hvis callback ikke finnes
   }
   return(
     <div className={styles.btnContainer}>

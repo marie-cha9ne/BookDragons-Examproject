@@ -1,6 +1,5 @@
 import { getPayload } from 'payload'
 import config from '@/payload.config'
-import styles from './style.module.css'
 import BookList from '@/components/BookList/BookList'
 
 export default async function HomePage() {

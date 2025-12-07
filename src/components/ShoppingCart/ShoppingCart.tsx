@@ -11,19 +11,25 @@ type CartProps = {
 }
 
 export default function ShoppingCart({ onClose }: CartProps) {
+  // henter hele cart-arrayet fra zustand
   const cart = useStoredCart((state) => state.cart)
+
+  // Funksjoner for å legge til og fjerne bøker
   const removeBook = useStoredCart((s) => s.removeFromCart)
   const addBook = useStoredCart((s) => s.addToCart)
 
   const router = useRouter()
 
+  // Summere totalpris
   const total = cart.reduce((sum, item) => sum + item.price, 0)
 
+  // lager et 'frekvenskart' over hvor mange ganger hver bok ligger i cart
   const counts: Record<number, number> = {}
   for (const item of cart) {
     counts[item.id] = (counts[item.id] || 0) + 1
   };
 
+  // Lager liste for unike bøker + antall
   const uniqeItems = Object.entries(counts).map(([id, quantity]) => {
     return { id: Number(id), quantity }
   });
@@ -40,6 +46,7 @@ export default function ShoppingCart({ onClose }: CartProps) {
         <>
           <ul>
             {uniqeItems.map(({ id, quantity }) => {
+              // Finn bok-objektet basert på id
               const book = cart.find((b) => b.id === Number(id))
 
               if (!book) {

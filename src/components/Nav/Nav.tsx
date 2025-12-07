@@ -25,7 +25,8 @@ export default function Nav(){
   return(
     <>
     <nav className={styles.nav}>
-    <div 
+    <button 
+    type='button'
     className={styles.burgerMenu}
     onClick={()=> setMenuOpen(!menuOpen)}
     >
@@ -35,7 +36,7 @@ export default function Nav(){
         height={40}
         alt='Navigation menu'
         />
-    </div>
+    </button>
 
     <h3 className={styles.title}>BookDragons</h3>
 

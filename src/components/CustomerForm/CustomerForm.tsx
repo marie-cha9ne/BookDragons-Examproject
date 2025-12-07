@@ -81,7 +81,7 @@ export default function CustomerForm() {
     router.push('/');
   }
   return (
-    <section>
+    <section className={styles.formSection}>
       <form className={styles.resForm} onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input

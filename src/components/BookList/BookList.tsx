@@ -12,6 +12,7 @@ type BookListProps ={
 export default function BookList({books}: BookListProps){
  const [search, setSearch]= useState('');
 
+//  Filtrerer basert på søket, UI oppdaters underveis i søkingen.
  const filtered = books.filter(b => 
   b.title.toLowerCase().includes(search.toLowerCase())
  );
