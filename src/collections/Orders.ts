@@ -19,7 +19,7 @@ export const Orders : CollectionConfig={
     {
       name:'customerInfo',
       type:'text',
-      label:'Phone or Email',
+      label:'Email',
       required:true,
     },
     {
