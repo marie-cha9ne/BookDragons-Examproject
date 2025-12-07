@@ -46,7 +46,7 @@ export default function Nav(){
       ${menuOpen ? styles.open : ''}
       `}>
         <Link href={'/'} className={styles.navLink}>Home</Link>
-        <Link href={'/'} className={styles.navLink}>Genres</Link>
+        <Link href={'/genre'} className={styles.navLink}>Genres</Link>
         <Link href={'/authors'} className={styles.navLink}>Authors</Link>
     </ul>
 

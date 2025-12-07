@@ -38,7 +38,7 @@ src/
       |checkout/page.tsx #Bestillings skjema + Oppsummering
       |genre/
       |  |[slug]/page.tsx #Individuell sjanger & bøker til de
-      |  |page.tsx
+      |  |page.tsx #Visning av alle sjangre 
       |page.tsx #HomePage, visning av alle bøker
       |api/custom-orders/route.ts #Route handler 
 |collections/
