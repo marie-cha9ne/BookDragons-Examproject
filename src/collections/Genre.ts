@@ -30,8 +30,7 @@ export const Genre : CollectionConfig ={
     },
     {
       name:'genreDescription',
-      type:'textarea',
-      maxLength:500,
+      type:'richText',
       required:true,
       admin:{
         description:'Add a short description of the genre'
