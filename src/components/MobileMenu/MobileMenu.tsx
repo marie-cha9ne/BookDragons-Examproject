@@ -11,7 +11,7 @@ export default function MobileMenu({open, onClose}: MenuProps){
     <aside className={`${open ? styles.open : styles.closed} ${styles.menuSlide}`}>
       <ul className={styles.linkParent}>
       <Link href={'/'} className={styles.burgerLinks}>Home</Link>
-      <Link href={'/'} className={styles.burgerLinks}>Genres</Link>
+      <Link href={'/genre'} className={styles.burgerLinks}>Genres</Link>
       <Link href={'/authors'} className={styles.burgerLinks}>Authors</Link>
       </ul>
     </aside>
