@@ -23,6 +23,7 @@ export default async function AuthorSlugPage({params}: AuthorSlugParams){
 
   const authors = queryResults.docs[0]
 
+  // Filtrerer listen slik at den kun inneholder gyldige bokobjekter.
   const books = (authors.booksWritten || []).filter(
     (b): b is Book => typeof b === 'object' && b !== null
   );

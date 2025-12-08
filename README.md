@@ -19,7 +19,7 @@ npm install
 ```bash
 npm run dev
 ```
-hold inn alt(windows)/option(mac) og klikk på:
+hold inn ctrl(windows)/cmd(mac) og klikk på:
 - Local: http://localhost:3000 
 
 for å åpne (frontend). For å se admin-panelet legg på /admin i URL'en: 
@@ -68,7 +68,7 @@ src/
  klientkomponent som håndterer knappens funksjonalitet til å legge en bok i handlekurven. Den bruker (Zustand + localStorage) for å lagre varene, viser en toast melding ved 'added' eller 'soldout',og kan trigge en onAdd-callback hvis parent-komponentet trenger å utføre mer logikk etter et vellykket klikk.
 
  **BookCards**
- En presentasjonskomponent som viser et enkelt bokkort med bilde, tittel, forfatter, sjanger, tilgjengelighet og pris. Den håndterer enkel datavalidering (f.eks manglende forfatter eller cover) og lenker videre til dynamiske sider for forfatter og sjanger. Komponentens AddToCart-knapp bruker en callback for å vise en lokal toast-melding.
+ Et presentasjonskomponent som viser et enkelt bokkort med bilde, tittel, forfatter, sjanger, tilgjengelighet og pris. Den håndterer enkel datavalidering (f.eks manglende forfatter eller cover) og lenker videre til dynamiske sider for forfatter og sjanger. Komponentens AddToCart-knapp bruker en callback for å vise en lokal toast-melding.
 
  **BookList**
  Et komponent som viser frem bøker i forhold til søk i  søkefelt. Søkefunksjonen filtrerer bøkene i sanntid basert på tittel og sender de filtrerte resultatene videre til BookCards for visning. Komponentet bruker lokal state for søket og håndterer tomme søkeresultater.
