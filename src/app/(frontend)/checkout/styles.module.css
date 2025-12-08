@@ -1,0 +1,12 @@
+.resSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:1rem;
+  padding:4rem;
+
+  p{
+    max-width: 50rem;
+  }
+}

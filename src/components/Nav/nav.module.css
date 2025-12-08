@@ -1,0 +1,86 @@
+.nav{
+  background-color:#d5c6bc;
+  height: 13vh;
+  border-bottom:4px solid #3F220B;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color:black;
+  position: sticky;
+  width: 100%;
+  top:0;
+
+}
+
+.title{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.linkContainer{
+  width: 20rem;
+  padding:10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navLink{
+  text-decoration: none;
+  font-weight: 500;
+  transition: ease 0.3ms;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.navLink:hover{
+  transform: scale(1.5);
+}
+
+.burgerMenu{
+  display: none;
+}
+
+.cartBtn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.cartContainer{
+  position: relative;
+}
+.cartCount{
+  position: absolute;
+  top:-6px;
+  left:38px;
+  background-color: whitesmoke;
+  border: 1px solid #3F220B;
+  font-weight: 500;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-overflow: none;
+}
+
+@media (max-width: 768px){
+  .linkContainer{
+    display: none;
+  }
+
+  .burgerMenu{
+    display: block;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background-color: transparent;
+  }
+
+  .cartCount{
+    width: 25px;
+    height: 25px;
+  }
+}
