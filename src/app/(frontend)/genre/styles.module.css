@@ -1,0 +1,41 @@
+.genreSection{
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.genreDiv{
+  border-bottom: 3px solid #361C07;
+  padding:1rem;
+  max-width: 40rem;
+  margin: 2rem 0;
+  h2{
+    color: #361C07;
+    text-align: center;
+  }
+}
+
+.btnContainer{
+  display: flex;
+  height: 3.5rem;
+  justify-content: center;
+  padding:10px;
+}
+
+.btn{
+  width: 9rem;
+  padding:8px 12px; 
+  background-color: #95C178;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 1em;
+  transition: ease-in-out 0.2s;
+}
+
+.btn:hover{
+  background-color: transparent;
+  border: 6px solid #95C178;
+  cursor: pointer;
+  transform: scale(1.1);
+}

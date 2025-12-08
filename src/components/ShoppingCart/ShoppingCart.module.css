@@ -1,0 +1,38 @@
+.btn{
+  width: 9rem;
+  padding:8px 12px; 
+  background-color: #95C178;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 1em;
+  transition: ease-in-out 0.2s;
+}
+.btn:hover{
+  background-color: transparent;
+  border: 6px solid #95C178;
+  cursor: pointer;
+  transform: scale(1.01);
+}
+
+.listParent{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  place-items: center;
+  gap:1rem;
+
+  p{
+    font-size:1rem;
+  }
+}
+.btnContainer{
+  display: flex;
+  gap: 1rem;
+}
+.cartBtn{
+  cursor: pointer;
+  border: 2px solid #3F220B;
+  border-radius: 8px;
+  background-color: transparent;
+}
